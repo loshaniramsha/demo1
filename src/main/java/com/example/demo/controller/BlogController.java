@@ -18,13 +18,23 @@ public class BlogController {
         return blogRepository.findAll();
     }
 
-
     @PostMapping("/savePost")
     public Blog getAllPost(@RequestBody Blog blog){
         return blogRepository.save(blog);
     }
+
     @GetMapping("/getOnePost/{id}")
     public String getOnePost(@PathVariable String id){
         return id;
+    }
+
+    @PostMapping("/updatePost")
+    public Blog updatePost(@RequestBody Blog blog){
+        return blogRepository.save(blog);
+    }
+
+    @DeleteMapping("/deletePost/{id}")
+    public void deletePost(@PathVariable int id){
+        blogRepository.deleteById(id);
     }
 }
